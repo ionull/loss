@@ -21,6 +21,23 @@ static BOOL init_ed = NO;
 @synthesize supportVideoFormats;
 @synthesize supportAudioFormats;
 @synthesize supportSubFormats;
+@synthesize loopType;
+@synthesize loopTypeString;
+
+- (void)setLoopTypePresent {
+    switch (loopType) {
+        case L_DUNT:
+        default:
+            loopTypeString = @"0";
+            break;
+        case L_LIST:
+            loopTypeString = @"n";
+            break;
+        case L_SINGLE:
+            loopTypeString = @"1";
+            break;
+    }
+}
 
 +(TZAppDelegate *) sharedAppDelegate {
     if(_sharedAppDelegate == nil) {
@@ -66,8 +83,15 @@ static BOOL init_ed = NO;
 			// 如果文件不存在或者格式非法
 			bookmarks = [[NSMutableDictionary alloc] initWithCapacity:10];
 		}
+        
+        // 循环播放设置读取
+        //NSString *cycleType = [mainBundle valueForKey:@"CycleType"];
+        //loopType = [mainBundle objectForInfoDictionaryKey:@"LoopType"];
+        //if(loopType == nil) {
+            loopType = L_SINGLE;
+        //}
+        [self setLoopTypePresent];
 	}
-    //_sharedAppDelegate = self;
 	return self;
 }
 
@@ -75,7 +99,7 @@ static BOOL init_ed = NO;
 -(id) copyWithZone:(NSZone*)zone { return self; }
 -(id) retain { return self; }
 -(NSUInteger) retainCount { return NSUIntegerMax; }
--(void) release { }
+-(void) release { }//dunt delete this! will get crashed!
 -(id) autorelease { return self; }
 
 -(void) dealloc
@@ -170,6 +194,22 @@ static BOOL init_ed = NO;
 	if ([openPanel runModal] == NSFileHandlingPanelOKButton) {
 		[playerController loadFiles:[openPanel URLs] fromLocal:YES];
 	}
+}
+
+-(IBAction)changeLoopType:(id)sender {
+    switch(loopType) {
+        case L_DUNT:
+        default:
+            loopType = L_LIST;
+            break;
+        case L_LIST:
+            loopType = L_SINGLE;
+            break;
+        case L_SINGLE:
+            loopType = L_DUNT;
+            break;
+    }
+    [self setLoopTypePresent];
 }
 
 @end

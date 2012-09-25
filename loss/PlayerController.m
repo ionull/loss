@@ -885,25 +885,42 @@ NSString * const kMPCFFMpegProtoHead	= @"ffmpeg://";
 		[[[TZAppDelegate sharedAppDelegate] bookmarks] removeObjectForKey:[lastPlayedPath absoluteString]];
 	}
 	
-	if ([ud boolForKey:kUDKeyAutoPlayNext] && [lastPlayedPath isFileURL] && (!stoppedByForce)) {
-		//如果不是强制关闭的话
-		//如果不是本地文件，肯定返回nil
-		NSString *nextPath = 
-			[PlayList AutoSearchNextMoviePathFrom:[lastPlayedPath path] 
-										inFormats:[[[TZAppDelegate sharedAppDelegate] supportVideoFormats]
-												   setByAddingObjectsFromSet:[[TZAppDelegate sharedAppDelegate] supportAudioFormats]]];
-		
-		if (nextPath != nil) {
-			BOOL pasTemp = [ud boolForKey:kUDKeyPlayWhenOpened];
-			[ud setBool:YES forKey:kUDKeyPlayWhenOpened];
-			
-			[self loadFiles:[NSArray arrayWithObject:nextPath] fromLocal:YES];
-			
-			[ud setBool:pasTemp forKey:kUDKeyPlayWhenOpened];
+    if(!stoppedByForce) {
+        //判断循环播放类型
+        switch ([[TZAppDelegate sharedAppDelegate] loopType]) {
+            case L_LIST:
+                //
+                break;
+            case L_SINGLE:
+                [self loadFiles:[NSArray arrayWithObject:lastPlayedPath] fromLocal:YES];
+                break;
+            case L_MAGIC:
+                if ([ud boolForKey:kUDKeyAutoPlayNext] && [lastPlayedPath isFileURL]) {
+                    //如果不是强制关闭的话
+                    //如果不是本地文件，肯定返回nil
+                    NSString *nextPath =
+                    [PlayList AutoSearchNextMoviePathFrom:[lastPlayedPath path]
+                                                inFormats:[[[TZAppDelegate sharedAppDelegate] supportVideoFormats]
+                                                           setByAddingObjectsFromSet:[[TZAppDelegate sharedAppDelegate] supportAudioFormats]]];
+                    
+                    if (nextPath != nil) {
+                        BOOL pasTemp = [ud boolForKey:kUDKeyPlayWhenOpened];
+                        [ud setBool:YES forKey:kUDKeyPlayWhenOpened];
+                        
+                        [self loadFiles:[NSArray arrayWithObject:nextPath] fromLocal:YES];
+                        
+                        [ud setBool:pasTemp forKey:kUDKeyPlayWhenOpened];
+                        
+                        return;
+                    }
+                }
+                break;
+            case L_DUNT:
+            default:
+                break;
+        }
+    }
 
-			return;
-		}
-	}	
 	[notifCenter postNotificationName:kMPCPlayFinalizedNotification object:self userInfo:nil];
 }
 

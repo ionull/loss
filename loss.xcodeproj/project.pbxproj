@@ -277,16 +277,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7278CF6161010C200CF74CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7302F071609A1E80060CB5A /* MainMenu.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		E7302EE31609A1E80060CB5A = {
 			isa = PBXGroup;
 			children = (
-				E76B4824160C7B5700DFB6C1 /* binaries */,
 				E7302FDD160C2E4E0060CB5A /* BGHUDAppKit.xcodeproj */,
+				E7302FC2160C2E020060CB5A /* UniversalDetector.xcodeproj */,
+				E76B4824160C7B5700DFB6C1 /* binaries */,
 				E7302EF81609A1E80060CB5A /* loss */,
 				E7302F151609A1E80060CB5A /* lossTests */,
 				E7302EF11609A1E80060CB5A /* Frameworks */,
 				E7302EEF1609A1E80060CB5A /* Products */,
-				E7302FC2160C2E020060CB5A /* UniversalDetector.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -329,10 +337,10 @@
 		E7302EF81609A1E80060CB5A /* loss */ = {
 			isa = PBXGroup;
 			children = (
+				E7278CF6161010C200CF74CD /* Views */,
 				E7302F87160B383B0060CB5A /* Libraries */,
 				E7302F76160B36F70060CB5A /* Tools */,
 				E7302F551609B3940060CB5A /* Controllers */,
-				E7302F071609A1E80060CB5A /* MainMenu.xib */,
 				E7302EF91609A1E80060CB5A /* Supporting Files */,
 			);
 			path = loss;
