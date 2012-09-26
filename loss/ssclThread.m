@@ -143,7 +143,7 @@
 
   NSString* moviePath = [parameters objectAtIndex:0];
   WebView* webView = [parameters objectAtIndex:1];
-  ControlUIView* controlUIView = [parameters objectAtIndex:2];
+  //ControlUIView* controlUIView = [parameters objectAtIndex:2];
 	
 	NSString *resPath = [[NSBundle mainBundle] resourcePath];
 	

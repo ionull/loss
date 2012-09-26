@@ -13,8 +13,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  * 
- * You should have received/Users/tsung/Desktop/Tomasen-splayerx-a97f03511dfc/SPlayerX/CoreController.h
-/Users/tsung/Desktop/Tomasen-splayerx-a97f03511dfc/SPlayerX/CoreController.m a copy of the GNU General Public License
+ * You should have a copy of the GNU General Public License
  * along with MPlayerX; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
@@ -40,7 +39,7 @@ extern NSString * const kMPCPlayInfoUpdatedKeyPathKey;
 extern NSString * const kMPCPlayInfoUpdatedChangeDictKey;
 
 
-@class ControlUIView, OpenURLController, CharsetQueryController;
+@class OpenURLController, CharsetQueryController;
 
 @interface PlayerController : NSObject <NSApplicationDelegate, SubConverterDelegate, CoreControllerDelegate>
 {
@@ -55,7 +54,7 @@ extern NSString * const kMPCPlayInfoUpdatedChangeDictKey;
     BOOL OSDActive;
 
 	IBOutlet OSDView *osd;
-    IBOutlet ControlUIView *controlUI;
+    //IBOutlet ControlUIView *controlUI;
 	IBOutlet OpenURLController *openUrlController;
 	IBOutlet CharsetQueryController *charsetController;
 }
