@@ -13,6 +13,7 @@
 NSString * const kMPCFMTBookmarkPath	= @"%@/Library/Preferences/%@.bookmarks.plist";
 
 static TZAppDelegate *_sharedAppDelegate = nil;
+static NSNotificationCenter *_sharedNotifCenter;
 static BOOL init_ed = NO;
 
 @implementation TZAppDelegate
@@ -24,27 +25,14 @@ static BOOL init_ed = NO;
 @synthesize loopType;
 @synthesize loopTypeString;
 
-- (void)setLoopTypePresent {
-    switch (loopType) {
-        case L_DUNT:
-        default:
-            loopTypeString = @"0";
-            break;
-        case L_LIST:
-            loopTypeString = @"n";
-            break;
-        case L_SINGLE:
-            loopTypeString = @"1";
-            break;
-    }
-}
-
 +(TZAppDelegate *) sharedAppDelegate {
     if(_sharedAppDelegate == nil) {
         _sharedAppDelegate = [[super allocWithZone:nil]init];
     }
     return _sharedAppDelegate;
 }
+
+#pragma mark - life circle
 
 -(id) init
 {
@@ -115,6 +103,8 @@ static BOOL init_ed = NO;
 	[super dealloc];
 }
 
+#pragma mark - awake
+
 -(void) awakeFromNib
 {
 	//NSBundle *mainBundle = [NSBundle mainBundle];
@@ -127,7 +117,7 @@ static BOOL init_ed = NO;
     
 	// setup url list for OpenURL Panel
 	//[openUrlController initURLList:bookmarks];
-    
+        
 	// setup sleep timer
 	NSTimer *prevSlpTimer = [NSTimer timerWithTimeInterval:20
 													target:playerController
@@ -180,6 +170,8 @@ static BOOL init_ed = NO;
     [LaunchServiceHandler appLaunched:YES];
 }
 
+#pragma mark - file
+
 -(IBAction)openFile:(id)sender {
     NSLog(@"open");
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
@@ -196,6 +188,25 @@ static BOOL init_ed = NO;
 	}
 }
 
+#pragma mark - loop type
+
+- (void)setLoopTypePresent {
+    switch (loopType) {
+        case L_DUNT:
+        default:
+            self.loopTypeString = @"0";
+            break;
+        case L_LIST:
+            self.loopTypeString = @"n";
+            break;
+        case L_SINGLE:
+            self.loopTypeString = @"1";
+            break;
+        case L_MAGIC:
+            self.loopTypeString = @"?";
+    }
+}
+
 -(IBAction)changeLoopType:(id)sender {
     switch(loopType) {
         case L_DUNT:
@@ -206,6 +217,9 @@ static BOOL init_ed = NO;
             loopType = L_SINGLE;
             break;
         case L_SINGLE:
+            loopType = L_MAGIC;
+            break;
+        case L_MAGIC:
             loopType = L_DUNT;
             break;
     }

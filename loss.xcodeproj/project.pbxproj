@@ -84,6 +84,7 @@
 		E76B4825160C7B5700DFB6C1 /* binaries in CopyFiles */ = {isa = PBXBuildFile; fileRef = E76B4824160C7B5700DFB6C1 /* binaries */; };
 		E76B4828160C877B00DFB6C1 /* LaunchServiceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B4827160C877A00DFB6C1 /* LaunchServiceHandler.m */; };
 		E76B4829160C877B00DFB6C1 /* LaunchServiceHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B4827160C877A00DFB6C1 /* LaunchServiceHandler.m */; };
+		E7EE38E61614619C0079BF47 /* TZPlayingController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EE38E51614619C0079BF47 /* TZPlayingController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,8 @@
 		E76B4824160C7B5700DFB6C1 /* binaries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = binaries; sourceTree = "<group>"; };
 		E76B4826160C877900DFB6C1 /* LaunchServiceHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchServiceHandler.h; sourceTree = "<group>"; };
 		E76B4827160C877A00DFB6C1 /* LaunchServiceHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchServiceHandler.m; sourceTree = "<group>"; };
+		E7EE38E41614619C0079BF47 /* TZPlayingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPlayingController.h; sourceTree = "<group>"; };
+		E7EE38E51614619C0079BF47 /* TZPlayingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPlayingController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +397,8 @@
 				E7302F6B160B36380060CB5A /* PlayerController.m */,
 				E7302F041609A1E80060CB5A /* TZAppDelegate.h */,
 				E7302F051609A1E80060CB5A /* TZAppDelegate.m */,
+				E7EE38E41614619C0079BF47 /* TZPlayingController.h */,
+				E7EE38E51614619C0079BF47 /* TZPlayingController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				E76B480E160C524300DFB6C1 /* GTMStringEncoding.m in Sources */,
 				E76B480F160C524600DFB6C1 /* Appirater.m in Sources */,
 				E76B4828160C877B00DFB6C1 /* LaunchServiceHandler.m in Sources */,
+				E7EE38E61614619C0079BF47 /* TZPlayingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
