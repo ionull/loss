@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E70567DA1627001B00A5C13F /* TZPlaybackButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = E70567D91627001B00A5C13F /* TZPlaybackButtons.m */; };
 		E7302EF31609A1E80060CB5A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7302EF21609A1E80060CB5A /* Cocoa.framework */; };
 		E7302EFD1609A1E80060CB5A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7302EFB1609A1E80060CB5A /* InfoPlist.strings */; };
 		E7302EFF1609A1E80060CB5A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7302EFE1609A1E80060CB5A /* main.m */; };
@@ -53,6 +54,8 @@
 		E7302FFF160C36A80060CB5A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7302FFE160C36A80060CB5A /* StoreKit.framework */; };
 		E7303001160C36AE0060CB5A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7303000160C36AE0060CB5A /* Security.framework */; };
 		E7303003160C36B50060CB5A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7303002160C36B50060CB5A /* OpenGL.framework */; };
+		E73C3047162D54400033D290 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = E73C3045162D54400033D290 /* pause.png */; };
+		E73C3048162D54400033D290 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = E73C3046162D54400033D290 /* play.png */; };
 		E76B47F5160C512000DFB6C1 /* PlayingInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E7302F8F160B3AAF0060CB5A /* PlayingInfo.m */; };
 		E76B47F6160C512E00DFB6C1 /* StoreHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E7302F7F160B37EC0060CB5A /* StoreHandler.m */; };
 		E76B47F7160C513400DFB6C1 /* PlayList.m in Sources */ = {isa = PBXBuildFile; fileRef = E7302FA7160B3B930060CB5A /* PlayList.m */; };
@@ -158,6 +161,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E70567D81627001B00A5C13F /* TZPlaybackButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPlaybackButtons.h; sourceTree = "<group>"; };
+		E70567D91627001B00A5C13F /* TZPlaybackButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPlaybackButtons.m; sourceTree = "<group>"; };
 		E7302EEE1609A1E80060CB5A /* loss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7302EF21609A1E80060CB5A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E7302EF51609A1E80060CB5A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -238,6 +243,8 @@
 		E7302FFE160C36A80060CB5A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E7303000160C36AE0060CB5A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E7303002160C36B50060CB5A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		E73C3045162D54400033D290 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		E73C3046162D54400033D290 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		E76B4804160C51FB00DFB6C1 /* LogAnalyzeOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogAnalyzeOperation.h; sourceTree = "<group>"; };
 		E76B4805160C51FB00DFB6C1 /* LogAnalyzeOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogAnalyzeOperation.m; sourceTree = "<group>"; };
 		E76B4824160C7B5700DFB6C1 /* binaries */ = {isa = PBXFileReference; lastKnownFileType = folder; path = binaries; sourceTree = "<group>"; };
@@ -280,10 +287,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E70567D61626A93D00A5C13F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E70567D71626A96200A5C13F /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		E70567D71626A96200A5C13F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E73C3045162D54400033D290 /* pause.png */,
+				E73C3046162D54400033D290 /* play.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		E7278CF6161010C200CF74CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				E7302F071609A1E80060CB5A /* MainMenu.xib */,
+				E70567D81627001B00A5C13F /* TZPlaybackButtons.h */,
+				E70567D91627001B00A5C13F /* TZPlaybackButtons.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -340,6 +366,7 @@
 		E7302EF81609A1E80060CB5A /* loss */ = {
 			isa = PBXGroup;
 			children = (
+				E70567D61626A93D00A5C13F /* Resources */,
 				E7278CF6161010C200CF74CD /* Views */,
 				E7302F87160B383B0060CB5A /* Libraries */,
 				E7302F76160B36F70060CB5A /* Tools */,
@@ -598,6 +625,8 @@
 				E7302EFD1609A1E80060CB5A /* InfoPlist.strings in Resources */,
 				E7302F031609A1E80060CB5A /* Credits.rtf in Resources */,
 				E7302F091609A1E80060CB5A /* MainMenu.xib in Resources */,
+				E73C3047162D54400033D290 /* pause.png in Resources */,
+				E73C3048162D54400033D290 /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,6 +690,7 @@
 				E76B480F160C524600DFB6C1 /* Appirater.m in Sources */,
 				E76B4828160C877B00DFB6C1 /* LaunchServiceHandler.m in Sources */,
 				E7EE38E61614619C0079BF47 /* TZPlayingController.m in Sources */,
+				E70567DA1627001B00A5C13F /* TZPlaybackButtons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
